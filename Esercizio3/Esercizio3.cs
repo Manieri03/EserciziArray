@@ -7,7 +7,7 @@ namespace Esercizio3
         static void Main(string[] args)
         {
             Random random = new Random();
-            double[] numeri = new double[30];
+            double[] numeri = new double [30];
 
             for(int i = 0; i < numeri.Length; i++)
             {
