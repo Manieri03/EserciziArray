@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EserciziArray
 {
@@ -7,22 +8,28 @@ namespace EserciziArray
        
         static void Main(string[] args)
         {
-            const int TANTI = 50;
-            double[] numeri = new double[TANTI];
+            const int TANTI = 10;
             Random random = new Random();
-            for(int i = 0; i < numeri.Length; i++)
+            
+            HashSet<int> numeri = new HashSet<int>();
+            List<int> duplicati = new List<int>();
+
+            for (int i = 0; i < TANTI; i++)
             {
-                numeri[i] = random.Next(1, 20);
-                int count = 0;
-                for (int j = 0; j < numeri.Length; j++)
+                Console.WriteLine("Inserisci un numero: ");
+                int n = int.Parse(Console.ReadLine());
+                if (numeri.Contains(n))
                 {
-                    if (numeri[i] == numeri[j])
-                    {
-                        count = count + 1;
-                    }
+                    duplicati.Add(n);
                 }
-                Console.WriteLine(numeri[i] + " si ripete " + count + " volte");
+                numeri.Add(n);
             }
+            foreach(int doppioni in duplicati)
+            {
+                Console.WriteLine($"i doppioni sono :{doppioni}");
+            }
+            
+            
             Console.ReadLine();
         }
         
