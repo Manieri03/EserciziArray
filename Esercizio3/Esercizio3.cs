@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Esercizio3
 {
@@ -7,12 +8,25 @@ namespace Esercizio3
         static void Main(string[] args)
         {
             Random random = new Random();
-            double[] numeri = new double [30];
+            int[] numeri = new int[30];
+            int[] pari = new int[30];
 
+            for (int i = 0; i < numeri.Length; i++)
+            {
+                numeri[i]=random.Next(0, 1000);
+                if (numeri[i] % 2 == 0)
+                {
+                    pari[i] = numeri[i];
+                }
+
+            }
+            Array.Sort(pari);
             for(int i = 0; i < numeri.Length; i++)
             {
-                numeri[i]= random.Next(0, 999);
+                Console.WriteLine($"{pari[i]}");
             }
+            Console.ReadLine();
+
         }
     }
 }
