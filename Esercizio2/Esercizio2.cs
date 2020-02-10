@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Esercizio2
@@ -9,22 +10,18 @@ namespace Esercizio2
         {
             {
                 const int TANTI = 10;
-                double[] numeri = new double[TANTI];
+                List<int> numeri = new List<int>(TANTI);
                 Random random = new Random();
                 
-                for (int i = 0; i < numeri.Length; i++)
+                for (int i = 0; i < TANTI; i++)
                 {
-                    numeri[i] = random.Next(1, 20);
+                    numeri.Add (random.Next(1, 20));
                     
-                    for (int j = i + 1; j < numeri.Length; j++)   //TENTATIVO CON SELECTION SORT NON FUNZIONANTE
-                        if (numeri[j] < numeri[i])
-                            i = j;
-
-                    double temp = numeri[i];
-                    numeri[i] = numeri[i];
-
-                    Console.WriteLine(numeri[i]);
-
+                }
+                numeri.Sort();
+                foreach (int n in numeri)
+                {
+                    Console.WriteLine($"Ecco una lista di numeri ordinata in modo crescente: {n}");
                 }
                 Console.ReadLine();
             }
